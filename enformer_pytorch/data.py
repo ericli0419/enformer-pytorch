@@ -55,7 +55,7 @@ reverse_complement_map = torch.Tensor([3, 2, 1, 0, 4]).long()
 def torch_fromstring(seq_strs):
     batched = not isinstance(seq_strs, str)
     seq_strs = cast_list(seq_strs)
-    np_seq_chrs = list(map(lambda t: np.fromstring(t, dtype = np.uint8), seq_strs))
+    np_seq_chrs = list(map(lambda t: np.frombuffer(t.encode(), dtype = np.uint8).copy(), seq_strs))
     seq_chrs = list(map(torch.from_numpy, np_seq_chrs))
     return torch.stack(seq_chrs) if batched else seq_chrs[0]
 
