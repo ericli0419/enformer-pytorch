@@ -19,7 +19,7 @@ setup(
   install_requires=[
     'discrete-key-value-bottleneck-pytorch>=0.0.8',
     'einops>=0.3',
-    'numpy',
+    'numpy>=2.3.1',
     'torch>=1.6',
     'torchmetrics',
     'polars',
